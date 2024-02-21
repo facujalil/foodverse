@@ -1,0 +1,64 @@
+.loadingDots {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 1.25rem;
+  margin: 0 auto;
+}
+
+.dot {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #fda4af;
+  border-radius: 50%;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+.dot:nth-of-type(1),
+.dot:nth-of-type(2) {
+  left: 0;
+}
+
+.dot:nth-of-type(3) {
+  left: 1.875rem;
+}
+
+.dot:nth-of-type(4) {
+  left: 3.75rem;
+}
+
+@keyframes reveal {
+  from {
+    transform: scale(0.001);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(1.875rem);
+  }
+}
+
+.dot:nth-of-type(1) {
+  animation-name: reveal;
+}
+
+.dot:nth-of-type(2),
+.dot:nth-of-type(3) {
+  animation-name: slide;
+}
+
+.dot:nth-of-type(4) {
+  animation-name: reveal;
+  animation-direction: reverse;
+}
