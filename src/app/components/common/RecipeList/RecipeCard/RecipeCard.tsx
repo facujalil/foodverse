@@ -11,11 +11,11 @@ function RecipeCard({ recipe }: Props) {
   return (
     <div className={style.recipeCard}>
       <div className={style.recipeCardImgContainer}>
-        <RecipeImage src={recipe.strMealThumb} alt={recipe.strMeal} />
+        <RecipeImage src={recipe.image_url} alt={recipe.title} />
       </div>
-      <p>{recipe.strCategory}</p>
-      <h3>{recipe.strMeal}</h3>
-      <Link href={`/${recipe.idMeal}`} as={recipe.idMeal}>
+      <p>{recipe.publisher}</p>
+      <h3>{recipe.title}</h3>
+      <Link href={`/${recipe.id}`} as={recipe.id}>
         View recipe
       </Link>
     </div>

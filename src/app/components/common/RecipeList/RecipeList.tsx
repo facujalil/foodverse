@@ -10,7 +10,7 @@ function RecipeList({ recipeList }: Props) {
   return (
     <div className={style.recipeList}>
       {recipeList.map((recipe) => (
-        <RecipeCard key={recipe.idMeal} recipe={recipe} />
+        <RecipeCard key={recipe.id} recipe={recipe} />
       ))}
     </div>
   );

@@ -18,9 +18,8 @@ function ToggleFavouritesButton({ recipeDetail }: Props) {
   );
 
   const isFavourited = useRef(
-    favouriteRecipeList.filter(
-      (recipe) => recipe.idMeal === recipeDetail.idMeal
-    ).length > 0
+    favouriteRecipeList.filter((recipe) => recipe.id === recipeDetail.id)
+      .length > 0
   );
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
@@ -28,7 +27,7 @@ function ToggleFavouritesButton({ recipeDetail }: Props) {
 
   const toggleFavourites = (isFavourited: boolean) => {
     if (isFavourited) {
-      dispatch(removeFromFavourites(recipeDetail.idMeal));
+      dispatch(removeFromFavourites(recipeDetail.id));
     } else {
       dispatch(addAsFavourite(recipeDetail));
     }

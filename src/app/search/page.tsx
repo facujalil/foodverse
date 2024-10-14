@@ -12,24 +12,24 @@ interface Props {
 async function Page({ searchParams }: Props) {
   const { q } = searchParams;
 
-  const recipeList: Recipe[] | null = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${q}`
+  const recipeList: Recipe[] = await fetch(
+    `https://forkify-api.herokuapp.com/api/v2/recipes?search=${q}`
   )
     .then((res) => {
       if (!res.ok) {
-        throw new Error("Something went wrong");
+        throw new Error(res.statusText || "Something went wrong");
       }
       return res.json();
     })
-    .then((data) => data.meals)
+    .then(({ data }) => data.recipes)
     .catch((error) => {
       console.error(error);
-      return null;
+      return [];
     });
 
   return (
     <div className={style.search}>
-      {recipeList && recipeList.length > 0 ? (
+      {recipeList.length > 0 ? (
         <RecipeList recipeList={recipeList} />
       ) : (
         <Message error={true} message="No recipe found!" />

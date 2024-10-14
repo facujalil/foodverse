@@ -19,7 +19,7 @@ export const recipesSlice = createSlice({
     },
     removeFromFavourites: (state, action: PayloadAction<string>) => {
       state.favouriteRecipeList = state.favouriteRecipeList.filter(
-        (recipe) => recipe.idMeal !== action.payload
+        (recipe) => recipe.id !== action.payload
       );
     },
   },

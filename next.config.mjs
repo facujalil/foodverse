@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "www.themealdb.com",
+        hostname: "forkify-api.herokuapp.com",
       },
     ],
   },

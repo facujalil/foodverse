@@ -1,13 +1,17 @@
 export interface Recipe {
-  idMeal: string;
-  strMeal: string;
-  strCategory: string;
-  strMealThumb: string;
-  [key: `strIngredient${number}`];
-  [key: `strMeasure${number}`];
+  publisher: string;
+  image_url: string;
+  title: string;
+  id: string;
 }
 
 export interface RecipeDetail extends Recipe {
-  strYoutube: string;
-  strSource: string;
+  ingredients: Ingredient[];
+  source_url: string;
+}
+
+export interface Ingredient {
+  quantity: number;
+  unit: string;
+  description: string;
 }
