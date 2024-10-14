@@ -1,8 +1,7 @@
-import React from "react";
 import style from "./page.module.css";
 import { Recipe } from "../types";
-import RecipeList from "../components/RecipeList/RecipeList";
-import Message from "../components/Message/Message";
+import RecipeList from "../components/common/RecipeList/RecipeList";
+import Message from "../components/common/Message/Message";
 
 interface Props {
   searchParams: {
@@ -13,14 +12,25 @@ interface Props {
 async function Page({ searchParams }: Props) {
   const { q } = searchParams;
 
-  const recipeList: { meals: [Recipe] } = await fetch(
+  const recipeList: Recipe[] | null = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${q}`
-  ).then((res) => res.json());
+  )
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Something went wrong");
+      }
+      return res.json();
+    })
+    .then((data) => data.meals)
+    .catch((error) => {
+      console.error(error);
+      return null;
+    });
 
   return (
     <div className={style.search}>
-      {recipeList.meals && recipeList.meals.length > 0 ? (
-        <RecipeList recipeList={recipeList.meals} />
+      {recipeList && recipeList.length > 0 ? (
+        <RecipeList recipeList={recipeList} />
       ) : (
         <Message error={true} message="No recipe found!" />
       )}

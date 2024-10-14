@@ -1,0 +1,14 @@
+.ingredientItem {
+  display: flex;
+  gap: 0.25rem;
+  font-size: 1.15em;
+  font-weight: 500;
+}
+
+.ingredientItem svg {
+  height: 2rem;
+}
+
+.ingredientItem p {
+  line-height: 2rem;
+}

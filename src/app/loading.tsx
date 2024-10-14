@@ -1,5 +1,4 @@
-import React from "react";
-import LoadingDots from "./components/LoadingDots/LoadingDots";
+import LoadingDots from "./components/common/LoadingDots/LoadingDots";
 
 function loading() {
   return <LoadingDots />;

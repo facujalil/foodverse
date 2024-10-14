@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
 import style from "./page.module.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import Message from "../components/Message/Message";
-import RecipeList from "../components/RecipeList/RecipeList";
+import Message from "../components/common/Message/Message";
+import RecipeList from "../components/common/RecipeList/RecipeList";
 
 function Page() {
   const favouriteRecipeList = useSelector(

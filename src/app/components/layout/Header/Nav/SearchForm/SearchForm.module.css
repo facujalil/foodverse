@@ -1,0 +1,13 @@
+.searchForm {
+  width: 100%;
+  max-width: 25rem;
+}
+
+.searchForm input {
+  width: 100%;
+  padding: 1rem 1.85rem;
+  font-size: 1.15em;
+  font-weight: 500;
+  border-radius: 99px;
+  box-shadow: 0 1px 3px rgba(55, 65, 81, 0.25);
+}

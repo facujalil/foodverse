@@ -1,0 +1,16 @@
+.errorMessage,
+.message {
+  font-weight: 700;
+  text-align: center;
+}
+
+.errorMessage {
+  font-size: 1.85em;
+}
+
+.message {
+  margin-bottom: 4rem;
+  font-size: 2.35em;
+  font-weight: 700;
+  color: #fda4af;
+}
