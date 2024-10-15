@@ -2,6 +2,8 @@ import style from "./page.module.css";
 import { RecipeDetail } from "../types";
 import Link from "next/link";
 import ToggleFavouritesButton from "../components/recipeDetail/ToggleFavouritesButton/ToggleFavouritesButton";
+import { MdPersonOutline } from "react-icons/md";
+import { IoMdStopwatch } from "react-icons/io";
 import RecipeImage from "../components/common/RecipeImage/RecipeImage";
 import { GiKnifeFork } from "react-icons/gi";
 import IngredientList from "../components/recipeDetail/IngredientList/IngredientList";
@@ -31,6 +33,19 @@ async function page({ params }: Props) {
       return null;
     });
 
+  const formatTime = (minutes: number) => {
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+
+    if (hours > 0 && remainingMinutes > 0) {
+      return `${hours}h${remainingMinutes}min`;
+    } else if (hours > 0) {
+      return `${hours}h`;
+    } else {
+      return `${remainingMinutes}min`;
+    }
+  };
+
   return (
     <div className={style.recipeDetail}>
       {recipeDetail ? (
@@ -45,6 +60,15 @@ async function page({ params }: Props) {
             <div className={style.mainContainerInfoSection}>
               <p>{recipeDetail.publisher}</p>
               <h1>{recipeDetail.title}</h1>
+              <div className={style.infoSectionDetails}>
+                <p>
+                  <MdPersonOutline /> Servings (people): {recipeDetail.servings}
+                </p>
+                <p>
+                  <IoMdStopwatch /> Cooking time:{" "}
+                  {formatTime(recipeDetail.cooking_time)}
+                </p>
+              </div>
               <div className={style.infoSectionActions}>
                 <ToggleFavouritesButton recipeDetail={recipeDetail} />
                 <Link href={recipeDetail.source_url} target="_blank">

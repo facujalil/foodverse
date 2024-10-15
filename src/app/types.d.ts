@@ -8,6 +8,8 @@ export interface Recipe {
 export interface RecipeDetail extends Recipe {
   ingredients: Ingredient[];
   source_url: string;
+  servings: number;
+  cooking_time: number;
 }
 
 export interface Ingredient {

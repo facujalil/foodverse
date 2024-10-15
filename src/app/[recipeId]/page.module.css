@@ -40,6 +40,9 @@
   font-size: 1.25em;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.mainContainerInfoSection p:not(.infoSectionDetails p) {
   color: #38bdf8;
 }
 
@@ -48,6 +51,23 @@
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.infoSectionDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.infoSectionDetails p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  color: #e11d48;
 }
 
 .infoSectionActions {
