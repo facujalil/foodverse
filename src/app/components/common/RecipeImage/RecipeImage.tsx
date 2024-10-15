@@ -1,4 +1,8 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
+import NextImage from "next/image";
+import NoImage from "./NoImage/NoImage";
 
 interface Props {
   src: string;
@@ -6,9 +10,22 @@ interface Props {
 }
 
 function RecipeImage({ src, alt }: Props) {
-  return (
-    <Image
-      src={src}
+  const [imgSrc, setImgSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      setImgSrc(src);
+    };
+    img.onerror = () => {
+      setImgSrc("");
+    };
+  }, [src]);
+
+  return imgSrc ? (
+    <NextImage
+      src={imgSrc}
       alt={alt}
       width={0}
       height={0}
@@ -20,7 +37,9 @@ function RecipeImage({ src, alt }: Props) {
       }}
       priority
     />
-  );
+  ) : imgSrc === "" ? (
+    <NoImage />
+  ) : null;
 }
 
 export default RecipeImage;
