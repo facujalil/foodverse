@@ -13,11 +13,10 @@ function RecipeImage({ src, alt }: Props) {
   const [imgSrc, setImgSrc] = useState<string | null>(null);
 
   useEffect(() => {
-    const secureSrc = src.replace(/^http:\/\//i, "https://");
     const img = new Image();
-    img.src = secureSrc;
+    img.src = src;
     img.onload = () => {
-      setImgSrc(secureSrc);
+      setImgSrc(src);
     };
     img.onerror = () => {
       setImgSrc("");
