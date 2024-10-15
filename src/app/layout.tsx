@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import "./globals.css";
 import { Quicksand } from "next/font/google";
-import StoreProvider from "./store/StoreProvider";
+import { RecipesProvider } from "./context/RecipesContext";
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 
@@ -27,11 +27,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         ></script>
       </head>
       <body>
-        <StoreProvider>
+        <RecipesProvider>
           <Header />
           {children}
           <Footer />
-        </StoreProvider>
+        </RecipesProvider>
       </body>
     </html>
   );

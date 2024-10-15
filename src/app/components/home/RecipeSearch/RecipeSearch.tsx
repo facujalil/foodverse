@@ -1,19 +1,14 @@
-import style from "./page.module.css";
-import { Recipe } from "../types";
-import RecipeList from "../components/common/RecipeList/RecipeList";
-import Message from "../components/common/Message/Message";
+import { Recipe } from "@/app/types";
+import RecipeList from "../../common/RecipeList/RecipeList";
+import Message from "../../common/Message/Message";
 
 interface Props {
-  searchParams: {
-    q: string;
-  };
+  searchRecipe: string;
 }
 
-async function Page({ searchParams }: Props) {
-  const { q } = searchParams;
-
+async function RecipeSearch({ searchRecipe }: Props) {
   const recipeList: Recipe[] = await fetch(
-    `https://forkify-api.herokuapp.com/api/v2/recipes?search=${q}`
+    `https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchRecipe}`
   )
     .then((res) => {
       if (!res.ok) {
@@ -28,14 +23,14 @@ async function Page({ searchParams }: Props) {
     });
 
   return (
-    <div className={style.search}>
+    <>
       {recipeList.length > 0 ? (
         <RecipeList recipeList={recipeList} />
       ) : (
         <Message error={true} message="No recipe found!" />
       )}
-    </div>
+    </>
   );
 }
 
-export default Page;
+export default RecipeSearch;

@@ -1,15 +1,12 @@
 "use client";
 
 import style from "./page.module.css";
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
+import { useRecipes } from "../context/RecipesContext";
 import Message from "../components/common/Message/Message";
 import RecipeList from "../components/common/RecipeList/RecipeList";
 
 function Page() {
-  const favouriteRecipeList = useSelector(
-    (state: RootState) => state.recipes.favouriteRecipeList
-  );
+  const { favouriteRecipeList } = useRecipes();
 
   return (
     <div className={style.favourites}>

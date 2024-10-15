@@ -1,6 +1,6 @@
 import style from "./Header.module.css";
 import Link from "next/link";
-import SearchForm from "./Nav/SearchForm/SearchForm";
+import SearchForm from "./SearchForm/SearchForm";
 import Nav from "./Nav/Nav";
 
 function Header() {

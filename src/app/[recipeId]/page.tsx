@@ -1,13 +1,13 @@
 import style from "./page.module.css";
 import { RecipeDetail } from "../types";
-import Link from "next/link";
-import ToggleFavouritesButton from "../components/recipeDetail/ToggleFavouritesButton/ToggleFavouritesButton";
 import { MdPersonOutline } from "react-icons/md";
 import { IoMdStopwatch } from "react-icons/io";
-import RecipeImage from "../components/common/RecipeImage/RecipeImage";
 import { GiKnifeFork } from "react-icons/gi";
+import RecipeImage from "../components/common/RecipeImage/RecipeImage";
+import ToggleFavouritesButton from "../components/recipeDetail/ToggleFavouritesButton/ToggleFavouritesButton";
 import IngredientList from "../components/recipeDetail/IngredientList/IngredientList";
 import Message from "../components/common/Message/Message";
+import Link from "next/link";
 
 interface Props {
   params: {

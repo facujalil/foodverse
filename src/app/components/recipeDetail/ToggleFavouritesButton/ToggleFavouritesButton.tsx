@@ -2,20 +2,15 @@
 
 import { useRef } from "react";
 import { RecipeDetail } from "@/app/types";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/app/store/store";
+import { useRecipes } from "@/app/context/RecipesContext";
 import { useRouter } from "next/navigation";
-import { addAsFavourite, removeFromFavourites } from "@/app/store/recipesSlice";
 
 interface Props {
   recipeDetail: RecipeDetail;
 }
 
 function ToggleFavouritesButton({ recipeDetail }: Props) {
-  const dispatch = useDispatch();
-  const favouriteRecipeList = useSelector(
-    (state: RootState) => state.recipes.favouriteRecipeList
-  );
+  const { favouriteRecipeList, setFavouriteRecipeList } = useRecipes();
 
   const isFavourited = useRef(
     favouriteRecipeList.filter((recipe) => recipe.id === recipeDetail.id)
@@ -27,9 +22,11 @@ function ToggleFavouritesButton({ recipeDetail }: Props) {
 
   const toggleFavourites = (isFavourited: boolean) => {
     if (isFavourited) {
-      dispatch(removeFromFavourites(recipeDetail.id));
+      setFavouriteRecipeList((state) =>
+        state.filter((item) => item.id !== recipeDetail.id)
+      );
     } else {
-      dispatch(addAsFavourite(recipeDetail));
+      setFavouriteRecipeList((state) => [...state, recipeDetail]);
     }
 
     if (buttonRef.current) {

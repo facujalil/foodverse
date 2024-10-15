@@ -2,16 +2,13 @@
 
 import style from "./Nav.module.css";
 import { usePathname } from "next/navigation";
-import { useSelector } from "react-redux";
-import { RootState } from "@/app/store/store";
+import { useRecipes } from "@/app/context/RecipesContext";
 import Link from "next/link";
 
 function Nav() {
   const pathname = usePathname();
 
-  const favouriteRecipeList = useSelector(
-    (state: RootState) => state.recipes.favouriteRecipeList
-  );
+  const { favouriteRecipeList } = useRecipes();
 
   return (
     <nav className={style.nav}>

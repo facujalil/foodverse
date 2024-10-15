@@ -2,16 +2,20 @@
 
 import { FormEvent, useState } from "react";
 import style from "./SearchForm.module.css";
+import { useRecipes } from "@/app/context/RecipesContext";
 import { useRouter } from "next/navigation";
 
 function SearchForm() {
+  const { setSearchRecipe } = useRecipes();
+
   const router = useRouter();
 
   const [input, setInput] = useState("");
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push(`/search?q=${input}`);
+    setSearchRecipe(input);
+    router.push("/");
     setInput("");
   };
 
