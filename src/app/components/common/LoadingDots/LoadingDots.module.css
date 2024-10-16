@@ -1,8 +1,7 @@
 .loadingDots {
   position: relative;
-  flex-grow: 1;
+  flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 5rem;
   height: 1.25rem;

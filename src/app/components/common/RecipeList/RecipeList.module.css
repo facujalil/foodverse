@@ -1,8 +1,9 @@
 .recipeList {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 2rem;
   width: 85%;
+  margin: 0 auto;
 }
