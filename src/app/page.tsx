@@ -1,13 +1,13 @@
 "use client";
 
 import style from "./page.module.css";
-import { useRecipes } from "./context/RecipesContext";
+import { useRecipesContext } from "./context/RecipesContext";
 import RecipeSearch from "./components/home/RecipeSearch/RecipeSearch";
 import Message from "./components/common/Message/Message";
 import Cooking from "./components/common/Cooking/Cooking";
 
 function Page() {
-  const { searchRecipe } = useRecipes();
+  const { searchRecipe } = useRecipesContext();
 
   return (
     <div className={style.home}>

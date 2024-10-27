@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { RecipeDetail } from "@/app/types";
-import { useRecipes } from "@/app/context/RecipesContext";
+import { useRecipesContext } from "@/app/context/RecipesContext";
 import { useRouter } from "next/navigation";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 
 function ToggleFavouritesButton({ recipeDetail }: Props) {
-  const { favouriteRecipeList, setFavouriteRecipeList } = useRecipes();
+  const { favouriteRecipeList, setFavouriteRecipeList } = useRecipesContext();
 
   const isFavourited = useRef(
     favouriteRecipeList.filter((recipe) => recipe.id === recipeDetail.id)

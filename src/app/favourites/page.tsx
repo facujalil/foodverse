@@ -1,12 +1,12 @@
 "use client";
 
 import style from "./page.module.css";
-import { useRecipes } from "../context/RecipesContext";
+import { useRecipesContext } from "../context/RecipesContext";
 import Message from "../components/common/Message/Message";
 import RecipeList from "../components/common/RecipeList/RecipeList";
 
 function Page() {
-  const { favouriteRecipeList } = useRecipes();
+  const { favouriteRecipeList } = useRecipesContext();
 
   return (
     <div className={style.favourites}>

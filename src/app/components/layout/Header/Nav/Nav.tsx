@@ -2,13 +2,13 @@
 
 import style from "./Nav.module.css";
 import { usePathname } from "next/navigation";
-import { useRecipes } from "@/app/context/RecipesContext";
+import { useRecipesContext } from "@/app/context/RecipesContext";
 import Link from "next/link";
 
 function Nav() {
   const pathname = usePathname();
 
-  const { favouriteRecipeList } = useRecipes();
+  const { favouriteRecipeList } = useRecipesContext();
 
   return (
     <nav className={style.nav}>

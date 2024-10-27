@@ -2,11 +2,11 @@
 
 import { FormEvent, useState } from "react";
 import style from "./SearchForm.module.css";
-import { useRecipes } from "@/app/context/RecipesContext";
+import { useRecipesContext } from "@/app/context/RecipesContext";
 import { useRouter } from "next/navigation";
 
 function SearchForm() {
-  const { setSearchRecipe } = useRecipes();
+  const { setSearchRecipe } = useRecipesContext();
 
   const router = useRouter();
 

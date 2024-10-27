@@ -53,10 +53,10 @@ export const RecipesProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export const useRecipes = () => {
+export const useRecipesContext = () => {
   const context = useContext(RecipesContext);
   if (context === undefined) {
-    throw new Error("useRecipes must be used within a RecipesProvider");
+    throw new Error("useRecipesContext must be used within a RecipesProvider");
   }
 
   return context;
